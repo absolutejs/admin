@@ -1,6 +1,8 @@
 import { Type, type Static } from "@sinclair/typebox";
 
-const TimestampSchema = Type.String({ format: "date-time" });
+const TimestampSchema = Type.String({
+  pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$",
+});
 
 export const SiteSecurityFindingSchema = Type.Object(
   {
@@ -12,6 +14,7 @@ export const SiteSecurityFindingSchema = Type.Object(
     remediateBy: Type.Union([Type.Null(), TimestampSchema]),
     severity: Type.String(),
     status: Type.String(),
+    tenantId: Type.String(),
     value: Type.Record(Type.String(), Type.Unknown()),
   },
   { additionalProperties: false },
@@ -44,6 +47,7 @@ export const SiteSecurityRemediationSchema = Type.Object(
     createdAt: TimestampSchema,
     planId: Type.String(),
     status: Type.String(),
+    tenantId: Type.String(),
     updatedAt: TimestampSchema,
     value: Type.Record(Type.String(), Type.Unknown()),
   },
@@ -53,12 +57,36 @@ export type SiteSecurityRemediation = Static<
   typeof SiteSecurityRemediationSchema
 >;
 
+export const SiteSecurityReleaseSchema = Type.Object(
+  {
+    activatedAt: Type.Union([Type.Null(), TimestampSchema]),
+    admission: Type.Union([
+      Type.Null(),
+      Type.Object(
+        {
+          evaluatedAt: TimestampSchema,
+          exceptions: Type.Integer({ minimum: 0 }),
+          status: Type.Union([Type.Literal("failed"), Type.Literal("passed")]),
+          violations: Type.Integer({ minimum: 0 }),
+        },
+        { additionalProperties: false },
+      ),
+    ]),
+    createdAt: TimestampSchema,
+    releaseId: Type.String(),
+    status: Type.String(),
+  },
+  { additionalProperties: false },
+);
+export type SiteSecurityRelease = Static<typeof SiteSecurityReleaseSchema>;
+
 export const SiteSecuritySnapshotSchema = Type.Object(
   {
     findings: Type.Array(SiteSecurityFindingSchema),
     generatedAt: TimestampSchema,
     incidents: Type.Array(SiteSecurityIncidentSchema),
     projectId: Type.String(),
+    releases: Type.Array(SiteSecurityReleaseSchema),
     remediation: Type.Array(SiteSecurityRemediationSchema),
     summary: Type.Object(
       {

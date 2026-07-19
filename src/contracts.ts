@@ -9,6 +9,20 @@ export const SiteAdminRoleSchema = Type.Union([
 ]);
 export type SiteAdminRoleContract = Static<typeof SiteAdminRoleSchema>;
 
+export const SiteAdminCapabilitySchema = Type.Union([
+  Type.Literal("site.read"),
+  Type.Literal("site.deploy"),
+  Type.Literal("site.configure"),
+  Type.Literal("site.data.read"),
+  Type.Literal("site.data.manage"),
+  Type.Literal("site.secrets.manage"),
+  Type.Literal("site.security.read"),
+  Type.Literal("site.security.respond"),
+  Type.Literal("site.security.remediate"),
+  Type.Literal("site.team.manage"),
+  Type.Literal("site.delete"),
+]);
+
 export const SiteAdminMemberSchema = Type.Object(
   {
     createdAt: Type.String({ format: "date-time" }),
@@ -23,7 +37,7 @@ export type SiteAdminMember = Static<typeof SiteAdminMemberSchema>;
 
 export const SiteAdminAccessSchema = Type.Object(
   {
-    capabilities: Type.Array(Type.String()),
+    capabilities: Type.Array(SiteAdminCapabilitySchema, { uniqueItems: true }),
     projectId: Type.String({ minLength: 1 }),
     role: SiteAdminRoleSchema,
   },
