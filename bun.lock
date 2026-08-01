@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@absolutejs/site-admin",
+      "name": "@absolutejs/admin",
       "dependencies": {
         "@absolutejs/manifest": "0.3.0",
         "@sinclair/typebox": "0.34.52",

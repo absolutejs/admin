@@ -2,6 +2,7 @@
 
 ## 0.2.0 - 2026-07-19
 
+- Publish the package under `@absolutejs/admin`, replacing the former `@absolutejs/site-admin` name.
 - Add literal capability contracts for access responses.
 - Add project release admission and tenant-scoped remediation fields to security snapshots.
 

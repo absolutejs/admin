@@ -1,5 +1,5 @@
 {
-  "name": "@absolutejs/site-admin",
+  "name": "@absolutejs/admin",
   "version": "0.2.0",
   "description": "Framework-neutral roles, capabilities, navigation, and security read models for AbsoluteJS site administration.",
   "type": "module",
@@ -7,11 +7,11 @@
   "author": "Alex Kahn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/absolutejs/site-admin.git"
+    "url": "git+https://github.com/absolutejs/admin.git"
   },
-  "homepage": "https://github.com/absolutejs/site-admin",
+  "homepage": "https://github.com/absolutejs/admin",
   "bugs": {
-    "url": "https://github.com/absolutejs/site-admin/issues"
+    "url": "https://github.com/absolutejs/admin/issues"
   },
   "publishConfig": {
     "access": "public"

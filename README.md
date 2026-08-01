@@ -1,4 +1,4 @@
-# @absolutejs/site-admin
+# @absolutejs/admin
 
 Framework-neutral contracts and policy for a standard AbsoluteJS site administration portal.
 
@@ -27,7 +27,7 @@ import {
   authorizeSiteAdmin,
   capabilitiesForRole,
   navigationForCapabilities,
-} from "@absolutejs/site-admin";
+} from "@absolutejs/admin";
 
 authorizeSiteAdmin("security", "site.security.respond");
 

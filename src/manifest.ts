@@ -16,7 +16,7 @@ export const manifest = defineManifest<Record<string, never>>()({
       "present vulnerability posture without exposing other tenants",
     ],
     keywords: [
-      "site-admin",
+      "admin",
       "RBAC",
       "security",
       "project-management",
@@ -29,8 +29,8 @@ export const manifest = defineManifest<Record<string, never>>()({
     category: "operations",
     description:
       "Standard project-scoped administration contracts, permissions, navigation, and security read models for AbsoluteJS applications.",
-    docsUrl: "https://github.com/absolutejs/site-admin",
-    name: "@absolutejs/site-admin",
+    docsUrl: "https://github.com/absolutejs/admin",
+    name: "@absolutejs/admin",
     tagline: "Give every AbsoluteJS site a secure administration surface.",
   },
   settings: Type.Object({}),
