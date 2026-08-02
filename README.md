@@ -1,6 +1,6 @@
 # @absolutejs/admin
 
-Framework-neutral contracts and policy for a standard AbsoluteJS site administration portal.
+Framework-neutral contracts and policy for a standard AbsoluteJS project administration portal.
 
 The package defines:
 
@@ -10,7 +10,7 @@ The package defines:
 - public, project-scoped security snapshot contracts;
 - deterministic security posture summaries.
 
-It deliberately does not provide authentication, persistence, or a platform-wide operator console. A host such as AbsoluteJS PAAS supplies those adapters and enforces authorization before querying project data.
+It deliberately does not provide authentication, persistence, or a platform-wide operator console. A host application supplies those adapters and enforces authorization before querying project data.
 
 ## Roles
 
