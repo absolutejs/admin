@@ -22,6 +22,11 @@ It deliberately does not provide authentication, persistence, or a platform-wide
 | `developer`     | Deploy, configure, inspect data, and read security posture      |
 | `viewer`        | Read-only overview, data posture, and security posture          |
 
+The package and product surface are named **Admin**. The exported
+`SiteAdmin` and `authorizeSiteAdmin` identifiers are compatibility APIs from
+the earlier package name; new navigation, prose, and integrations should use
+Admin terminology.
+
 ```ts
 import {
   authorizeSiteAdmin,
