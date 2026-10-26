@@ -1,5 +1,28 @@
 {
 	"contract": 1,
 	"name": "@absolutejs/admin",
-	"releases": []
+	"releases": [
+		{
+			"changes": [
+				{
+					"kind": "changed",
+					"summary": "The `developer` role now includes `site.secrets.manage` and `site.data.manage`. Deploy access already reaches both, so withholding them only sent routine changes through an administrator; team management, security response and deletion still need a higher role",
+					"symbols": [
+						"capabilitiesForRole",
+						"roleHasCapability",
+						"authorizeSiteAdmin"
+					]
+				},
+				{
+					"kind": "changed",
+					"summary": "`manifest` is typed by the current `@absolutejs/manifest`: `contract` is `1` or `2`, `tools` follows the contract, and `settings` is a TypeBox object. The values are unchanged",
+					"symbols": [
+						"manifest"
+					]
+				}
+			],
+			"date": "2026-10-26",
+			"version": "0.3.0"
+		}
+	]
 }

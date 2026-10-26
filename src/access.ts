@@ -37,11 +37,16 @@ const ROLE_CAPABILITIES: Readonly<
     "site.security.respond",
     "site.security.remediate",
   ],
+  // A developer who can deploy can already ship code that reads every secret
+  // and migrates the data, so withholding these only routes routine changes
+  // through an administrator. Team, security response and deletion stay above.
   developer: [
     "site.read",
     "site.deploy",
     "site.configure",
     "site.data.read",
+    "site.data.manage",
+    "site.secrets.manage",
     "site.security.read",
   ],
   viewer: ["site.read", "site.data.read", "site.security.read"],
