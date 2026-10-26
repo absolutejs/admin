@@ -29,6 +29,25 @@ describe("site administration access", () => {
     ]);
   });
 
+  test("developers manage secrets and data but not the team, security response or deletion", () => {
+    expect(capabilitiesForRole("developer")).toEqual([
+      "site.read",
+      "site.deploy",
+      "site.configure",
+      "site.data.read",
+      "site.data.manage",
+      "site.secrets.manage",
+      "site.security.read",
+    ]);
+    for (const capability of [
+      "site.team.manage",
+      "site.security.respond",
+      "site.security.remediate",
+      "site.delete",
+    ] as const)
+      expect(roleHasCapability("developer", capability)).toBe(false);
+  });
+
   test("viewer mutation attempts fail closed", () => {
     expect(() => authorizeSiteAdmin("viewer", "site.security.respond")).toThrow(
       SiteAdminAuthorizationError,
